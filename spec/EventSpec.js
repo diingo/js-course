@@ -156,8 +156,11 @@ describe("Events", function() {
 
   });
 
+  // TODO:
+  // Doubt I passed this the right way
   it("The length of the array should be 3 when on is called thrice for the same event", function() {
 
+    // debugger;
     dog.on("bark", function(){
       console.log("woof");
     });

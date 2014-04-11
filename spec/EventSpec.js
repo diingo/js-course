@@ -30,6 +30,8 @@ describe("Extend Function", function() {
 
   });
 
+  // TO DO QUESTION
+  // how does this work?
   it("Should not set the source and destination object to equal each other", function() {
 
     extend(destination, source);
@@ -110,6 +112,8 @@ describe("Events", function() {
 
   });
 
+  // TODO
+  // how did passing this test make the next test pass?
   it("Should add a property to the internal events object when on is called", function() {
 
     console.log(Events);

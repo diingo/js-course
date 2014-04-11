@@ -1,30 +1,18 @@
 var Events = {
-  eventsArr: [],
   on: function(event, func) {
-    this.events = {};
-    if (this.eventsArr.length >= 1) {
-      this.eventsArr.push(func);
-      this.events[event] = this.eventsArr;
-    } else {
-      this.eventsArr = [func];
-      this.events[event] = [func];
+    if (!this.events) {
+      this.events = {};
+    }
 
+    if (this.events[event]) {
+      this.events[event].push(func);
+    } else {
+      this.events[event] = [func];
     }
   },
-  trigger: function() {
+  trigger: function(event) {
+    for(var i=0; i < this.events[event].length; i++ ) {
+      this.events[event][i]();
+    }
   }
 };
-
-
-// var Events = {
-//   on: function(event, func) {
-//     this.events = {};
-//     if (this.events[event]) {
-//       this.events[event].push(func);
-//     } else {
-//       this.events[event] = [func];
-//     }
-//   },
-//   trigger: function() {
-//   }
-// };

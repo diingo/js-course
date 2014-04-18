@@ -8,8 +8,10 @@
 <form>
   <label>Title: </label><input type="text" class="title" />
   <label>YouTube ID: </label><input type="text" class="youtubeId" />
+  <label>Genre: </label><input type="text" name="genre" />
   <button>Submit</button>
 </form>
+<div id="genre-stats"></div>
 
 <div id="video-display"></div>
 <div id="video-list"></div>
@@ -24,6 +26,10 @@
   <script type="text/template" class="video-list-item">
     <h3>{{title}}</h3>
     <p><a href="https://www.youtube.com/watch?v={{youtubeId}}">link to vid</a></p>
+  </script>
+
+  <script type="text/template" class="genre">
+    <p>The {{genre}} genre has {{count}} video(s)</p>
   </script>
 </div>
 

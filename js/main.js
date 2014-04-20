@@ -19,17 +19,6 @@ var renderVideoList = function () {
 };
 
 
-$('form').on('submit', function(e) {
-  e.preventDefault();
-  var title = $('.title').val();
-  var youtubeId = $('.youtubeId').val();
-  var genre = $('input[name="genre"]').val();
-
-  videos.push({ title: title, youtubeId: youtubeId, genre: genre });
-
-  renderVideoList();
-  renderGenreStats();
-});
 
 var renderGenreStats = function() {
 
@@ -57,4 +46,30 @@ var renderGenreStats = function() {
   stats = {};
   console.log('Stats for each genre: ', stats);
 };
+
+renderVideoList();
+$('#video-list').on('click', 'a', function(e) {
+  e.preventDefault();
+  var youtubeId = $(e.currentTarget).data('youtube-id');
+
+  console.log('Clicked on youtube video: ', youtubeId);
+
+  var iframeTemplate = $('#templates .video-embed').html();
+  var newIframeHtml = Robin.render(iframeTemplate)
+  $('#video-display').append(newIframeHtml);
+});
+
+$('form').on('submit', function(e) {
+  e.preventDefault();
+  var title = $('.title').val();
+  var youtubeId = $('.youtubeId').val();
+  var genre = $('input[name="genre"]').val();
+
+  videos.push({ title: title, youtubeId: youtubeId, genre: genre });
+
+  renderVideoList();
+  renderGenreStats();
+});
+
+
 

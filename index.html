@@ -5,31 +5,34 @@
 </head>
 <body>
 
-<form>
+<form id="new-video">
+  <!-- TODO: 2 inputs, 1 button -->
   <label>Title: </label><input type="text" class="title" />
-  <label>YouTube ID: </label><input type="text" class="youtubeId" />
+  <label>YouTube ID: </label><input type="text" class="youtubeId" value="NMtlQxJeWvc" />
   <label>Genre: </label><input type="text" name="genre" />
   <button>Submit</button>
 </form>
+
 <div id="genre-stats"></div>
 
 <div id="video-display"></div>
 <div id="video-list"></div>
 
-<form id="new-video">
-  <!-- TODO: 2 inputs, 1 button -->
-</form>
 
 
 <div id="templates">
   <!-- TODO: video-list-item template -->
   <script type="text/template" class="video-list-item">
     <h3>{{title}}</h3>
-    <p><a href="https://www.youtube.com/watch?v={{youtubeId}}">link to vid</a></p>
+    <p><a href="https://www.youtube.com/watch?v={{youtubeId}}" data-youtube-id="{{youtubeId}}">link to vid</a></p>
   </script>
 
   <script type="text/template" class="genre">
     <p>The {{genre}} genre has {{count}} video(s)</p>
+  </script>
+
+  <script type="text/template" class="video-embed">
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/{{youtubeId}}" frameborder="0" allowfullscreen></iframe>
   </script>
 </div>
 
